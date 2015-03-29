@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="HelloWorld">
+    <test name="HelloWorld">
+        <packages>
+            <package name="org.jpwh.test.helloworld"/>
+        </packages>
+    </test>
+</suite>

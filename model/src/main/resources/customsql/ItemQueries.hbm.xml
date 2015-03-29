@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.jpwh.model.customsql"
+                   default-access="field">
+
+    <sql-query name="loadImagesForItem">
+        <load-collection alias="img" role="Item.images"/>
+        <!-- TODO: Mapping doesn't work, see https://hibernate.atlassian.net/browse/HHH-8248
+        <load-collection alias="img" role="Item.images">
+            <return-property name="key" column="ITEM_ID"/>
+            <return-property name="filename" column="FILENAME"/>
+            <return-property name="sizeX" column="SIZEX"/>
+            <return-property name="sizeY" column="SIZEY"/>
+        </load-collection>
+        -->
+            select
+                ITEM_ID, FILENAME, SIZEX, SIZEY
+            from
+                ITEM_IMAGES
+            where
+                ITEM_ID = ?
+    </sql-query>
+
+    <sql-query name="findItemByIdFetchBids">
+        <return alias="i" class="Item"/>
+        <return-join alias="b" property="i.bids"/>
+        select
+            {i.*}, {b.*}
+        from
+            ITEM i
+        left outer join BID b
+            on i.ID = b.ITEM_ID
+        where
+            i.ID = ?
+    </sql-query>
+
+</hibernate-mapping>

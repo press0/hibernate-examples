@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!--
+
+    This module shows a simple HelloWorld example with JPA and Hibernate APIs.
+
+    A simple Message class is the only persistent domain model class. The unit tests
+    in the src/test/java folder load and store some messages. The test harness can
+    be found in the environment module.
+
+    -->
+
+    <!-- ##################################################################################################### -->
+
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.jpwh</groupId>
+        <artifactId>jpwh</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <!-- ##################################################################################################### -->
+
+    <artifactId>helloworld</artifactId>
+    <packaging>jar</packaging>
+
+    <!-- ##################################################################################################### -->
+
+    <name>HelloWorld</name>
+
+    <!-- ##################################################################################################### -->
+
+    <reporting>
+        <excludeDefaults>true</excludeDefaults>
+    </reporting>
+
+    <!-- ##################################################################################################### -->
+
+    <dependencies>
+
+        <dependency>
+            <groupId>org.jpwh</groupId>
+            <artifactId>environment</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+    </dependencies>
+
+</project>
